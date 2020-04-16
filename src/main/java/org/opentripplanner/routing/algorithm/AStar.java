@@ -256,16 +256,16 @@ public class AStar {
             // Don't search too far past the most recently found accepted path/state
             if (runState.foundPathWeight != null &&
                 runState.u.getWeight() > runState.foundPathWeight * OVERSEARCH_MULTIPLIER ) {
-                break;
+                //break;
             }
             if (runState.terminationStrategy != null) {
                 if (runState.terminationStrategy.shouldSearchTerminate (
                     runState.rctx.origin, runState.rctx.target, runState.u, runState.spt, runState.options)) {
-                    break;
+                    //break;
                 }
             }  else if (!runState.options.batch && runState.u_vertex == runState.rctx.target && runState.u.isFinal()) {
                 if (runState.options.onlyTransitTrips && !runState.u.isEverBoarded()) {
-                    continue;
+                    //continue;
                 }
                 runState.targetAcceptedStates.add(runState.u);
                 runState.foundPathWeight = runState.u.getWeight();
@@ -273,12 +273,12 @@ public class AStar {
                 // new GraphPath(runState.u, false).dump();
                 /* Only find one path at a time in long distance mode. */
                 if (runState.options.longDistance) {
-                    break;
+                    //break;
                 }
                 /* Break out of the search if we've found the requested number of paths. */
                 if (runState.targetAcceptedStates.size() >= runState.options.getNumItineraries()) {
                     LOG.debug("total vertices visited {}", runState.nVisited);
-                    break;
+                   // break;
                 }
             }
 

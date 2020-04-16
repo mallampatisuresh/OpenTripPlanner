@@ -547,7 +547,7 @@ public class RoutingRequest implements Cloneable, Serializable {
 
     /* Whether we are in "long-distance mode". This is currently a server-wide setting, but it could be made per-request. */
     // TODO remove
-    public boolean longDistance = false;
+    public boolean longDistance = true;
 
     /** Should traffic congestion be considered when driving? */
     public boolean useTraffic = false;
