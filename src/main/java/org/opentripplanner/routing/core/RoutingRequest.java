@@ -108,7 +108,7 @@ public class RoutingRequest implements Cloneable, Serializable {
     public TraverseModeSet modes = new TraverseModeSet("TRANSIT,WALK"); // defaults in constructor overwrite this
 
     /** The set of characteristics that the user wants to optimize for -- defaults to QUICK, or optimize for transit time. */
-    public OptimizeType optimize = OptimizeType.QUICK;
+    public OptimizeType optimize = OptimizeType.TRANSFERS;
     // TODO this should be completely removed and done only with individual cost parameters
     // Also: apparently OptimizeType only affects BICYCLE mode traversal of street segments.
     // If this is the case it should be very well documented and carried over into the Enum name.
@@ -301,7 +301,7 @@ public class RoutingRequest implements Cloneable, Serializable {
 
     public int alightSlack = 0;
 
-    public int maxTransfers = 2;
+    public int maxTransfers = Integer.MAX_VALUE;
 
     /**
      * Extensions to the trip planner will require additional traversal options beyond the default 
